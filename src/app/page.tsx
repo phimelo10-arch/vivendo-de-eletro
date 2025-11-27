@@ -19,12 +19,11 @@ export default function Home() {
       {/* Video Block */}
       <div className="w-full max-w-[900px] aspect-video rounded-lg overflow-hidden">
         <iframe
-          className="w-full h-full"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&rel=0"
-          title="Vídeo de Apresentação"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
+          id="panda-b1089a67-517c-4bd5-ba1d-33d3066c1b16"
+          src="https://player-vz-4ef3af7c-6a9.tv.pandavideo.com.br/embed/?v=b1089a67-517c-4bd5-ba1d-33d3066c1b16"
+          className="w-full h-full border-none"
+          allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+          allowFullScreen={true}
         ></iframe>
       </div>
 
