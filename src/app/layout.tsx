@@ -3,7 +3,7 @@ import './globals.css';
 import { MetaPixel } from '@/components/meta-pixel';
 
 export const metadata: Metadata = {
-  title: 'ElectroFix Landing',
+  title: 'Vivendo de Eletro',
   description: 'Aprenda a consertar eletrodomésticos',
 };
 
