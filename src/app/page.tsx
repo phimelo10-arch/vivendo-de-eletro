@@ -12,7 +12,7 @@ export default function Home() {
         </h1>
         <div className="flex items-center justify-center gap-2 text-lg font-bold text-muted-foreground">
           <Volume2 className="h-5 w-5" />
-          <span>Ative o som!</span>
+          <span className="font-bold text-lg">Ative o som!</span>
         </div>
       </div>
 
@@ -49,7 +49,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="text-center space-y-6 pt-8 w-full max-w-lg">
         <p className="text-xs text-muted-foreground">
-          MH Digital © 2022 Todos os direitos reservados – CNPJ : 46.213.929/0001-08
+          MH Digital © 2025 Todos os direitos reservados – CNPJ : 46.213.929/0001-08
         </p>
         
         <Link href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp" className="inline-block transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 focus:ring-offset-background rounded-full">
