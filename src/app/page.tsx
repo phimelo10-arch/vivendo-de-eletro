@@ -1,6 +1,45 @@
+'use client';
+
 import { Volume2 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+
+function DelayedButton() {
+  const [showButton, setShowButton] = useState(false);
+  const searchParams = useSearchParams();
+  const isAdmin = searchParams.get('admin') === 'true';
+
+  useEffect(() => {
+    if (isAdmin) {
+      setShowButton(true);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setShowButton(true);
+    }, 9 * 60 * 1000); // 9 minutes
+
+    return () => clearTimeout(timer);
+  }, [isAdmin]);
+
+  if (!showButton) {
+    return null;
+  }
+
+  return (
+    <div className="my-6 w-full max-w-2xl px-4">
+      <Button
+        size="lg"
+        className="w-full h-auto py-4 text-xl font-bold bg-green-600 hover:bg-green-700 text-white rounded-lg shadow-lg animate-pulse"
+      >
+        SIM! Quero Aprender a Consertar Eletrodoméstico!
+      </Button>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -24,21 +63,28 @@ export default function Home() {
           className="w-full h-full border-none"
           allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
           allowFullScreen={true}
+          width="720"
+          height="360"
         ></iframe>
       </div>
-
+      
       {/* Text Below Video */}
       <p className="text-center text-lg font-semibold italic text-white max-w-2xl">
         Assista a este vídeo até o final para obter acesso completo!
       </p>
 
+      {/* Delayed Button */}
+      <Suspense fallback={<div></div>}>
+        <DelayedButton />
+      </Suspense>
+
       {/* Logo */}
       <div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img 
-          src="https://i.imgur.com/gjewUFK.png" 
-          alt="MH Digital Logo" 
-          width="180" 
+        <img
+          src="https://i.imgur.com/gjewUFK.png"
+          alt="MH Digital Logo"
+          width="180"
           height="46"
           className="max-w-[180px] h-auto"
           loading="lazy"
@@ -50,19 +96,18 @@ export default function Home() {
         <p className="text-xs text-muted-foreground">
           MH Digital © 2025 Todos os direitos reservados – CNPJ : 46.213.929/0001-08
         </p>
-        
+
         <Link href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp" className="inline-block transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 focus:ring-offset-background rounded-full">
-          {/* The user wants this image instead of the SVG button */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="https://i.imgur.com/bQSY8X7.png"
             alt="Fale conosco no WhatsApp"
-            width={56} 
+            width={56}
             height={56}
             className="w-14 h-14"
           />
         </Link>
-        
+
         <div className="flex justify-center gap-6 text-sm">
           <Link href="#" className="text-muted-foreground no-underline hover:underline hover:text-white transition-colors">
             Política de Privacidade
