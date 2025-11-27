@@ -9,7 +9,7 @@ export default function Home() {
         <h1 className="text-4xl md:text-5xl lg:text-6xl text-white tracking-tight">
           Aprenda a consertar <strong className="font-bold">eletrodomésticos</strong>
         </h1>
-        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+        <div className="flex items-center justify-center gap-2 text-lg font-bold text-muted-foreground">
           <Volume2 className="h-5 w-5" />
           <span>Ative o som!</span>
         </div>
