@@ -69,7 +69,7 @@ export default function Home() {
     <main className="flex min-h-screen w-full flex-col items-center justify-center space-y-8 p-6 bg-background text-foreground">
       {/* Top Section */}
       <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl text-white tracking-tight">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl text-white tracking-tight">
           Aprenda a consertar <strong className="font-bold">eletrodomésticos</strong>
         </h1>
         <div className="flex items-center justify-center gap-2 text-lg font-bold text-muted-foreground">
