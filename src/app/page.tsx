@@ -30,7 +30,7 @@ export default function Home() {
 
       {/* Text Below Video */}
       <p className="text-center text-lg font-semibold italic text-white max-w-2xl">
-        “Assista a este vídeo até o final para obter acesso completo!”
+        Assista a este vídeo até o final para obter acesso completo!
       </p>
 
       {/* Logo */}
