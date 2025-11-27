@@ -1,7 +1,6 @@
 'use client';
 
 import { Volume2 } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -121,7 +120,7 @@ export default function Home() {
           MH Digital © 2025 Todos os direitos reservados – CNPJ : 46.213.929/0001-08
         </p>
 
-        <Link href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp" className="inline-block transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 focus:ring-offset-background rounded-full">
+        <div className="inline-block transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 focus:ring-offset-background rounded-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="https://i.imgur.com/bQSY8X7.png"
@@ -130,15 +129,15 @@ export default function Home() {
             height={56}
             className="w-14 h-14"
           />
-        </Link>
+        </div>
 
         <div className="flex justify-center gap-6 text-sm">
-          <Link href="#" className="text-muted-foreground no-underline hover:underline hover:text-white transition-colors">
+          <span className="text-muted-foreground no-underline transition-colors">
             Política de Privacidade
-          </Link>
-          <Link href="#" className="text-muted-foreground no-underline hover:underline hover:text-white transition-colors">
+          </span>
+          <span className="text-muted-foreground no-underline transition-colors">
             Termos de Uso
-          </Link>
+          </span>
         </div>
       </footer>
     </main>
