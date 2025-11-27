@@ -18,12 +18,6 @@ export const trackMetaEvent = (eventName: string, data?: object) => {
 };
 
 export const MetaPixel = () => {
-  useEffect(() => {
-    if (typeof window.fbq === 'function') {
-      window.fbq('track', 'PageView');
-    }
-  }, []);
-
   return (
     <Script id="meta-pixel" strategy="afterInteractive">
       {`
@@ -36,6 +30,7 @@ export const MetaPixel = () => {
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '${PIXEL_ID}');
+        fbq('track', 'PageView');
       `}
     </Script>
   );
