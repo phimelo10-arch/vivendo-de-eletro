@@ -27,6 +27,7 @@ function DelayedButton() {
 
   const handleAddToCart = () => {
     trackMetaEvent('AddToCart');
+    window.location.href = 'https://pay.cakto.com.br/mhpwpfk_669137';
   };
 
   if (!showButton) {
