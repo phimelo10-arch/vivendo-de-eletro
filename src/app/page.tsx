@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
+import { trackMetaEvent } from '@/components/meta-pixel';
 
 function DelayedButton() {
   const [showButton, setShowButton] = useState(false);
@@ -25,6 +26,10 @@ function DelayedButton() {
     return () => clearTimeout(timer);
   }, [isAdmin]);
 
+  const handleAddToCart = () => {
+    trackMetaEvent('AddToCart');
+  };
+
   if (!showButton) {
     return null;
   }
@@ -34,6 +39,7 @@ function DelayedButton() {
       <Button
         size="lg"
         className="w-full h-auto py-4 text-xl font-bold bg-green-600 hover:bg-green-700 text-white rounded-lg shadow-lg animate-pulse"
+        onClick={handleAddToCart}
       >
         SIM! Quero Aprender a Consertar Eletrodoméstico!
       </Button>
@@ -42,6 +48,24 @@ function DelayedButton() {
 }
 
 export default function Home() {
+
+  useEffect(() => {
+    // Track ViewContent after 4 minutes
+    const viewContentTimer = setTimeout(() => {
+      trackMetaEvent('ViewContent');
+    }, 4 * 60 * 1000);
+
+    // Track Contact after 9 minutes
+    const contactTimer = setTimeout(() => {
+      trackMetaEvent('Contact');
+    }, 9 * 60 * 1000);
+
+    return () => {
+      clearTimeout(viewContentTimer);
+      clearTimeout(contactTimer);
+    };
+  }, []);
+
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center space-y-8 p-6 bg-background text-foreground">
       {/* Top Section */}
